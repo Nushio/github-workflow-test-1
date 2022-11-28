@@ -1,0 +1,16 @@
+name: Dispatch Remotely
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Triggered remotely'
+        required: false
+        default: 'No source specified'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - run: echo "Triggered remotely from ${{ github.event.inputs.source }}"
